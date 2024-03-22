@@ -4,4 +4,6 @@
 
 ### 21/3: Thêm giao diện lưu thông tin bác sĩ và table doctor infor
 
-### 21/3 Design giao diện hiển thị thông tin khám bệnh của bác sĩ
+### 21/3: Design giao diện hiển thị thông tin khám bệnh của bác sĩ
+
+### 22/3: Hoàn Thiện Component Thông Tin Khám Bệnh Của Bác Sĩ
