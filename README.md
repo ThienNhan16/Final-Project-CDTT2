@@ -11,3 +11,5 @@
 ### 22/3: Tạo Customize Modal Đặt Lịch Khám Bệnh
 
 ### 22/3: Viết API Load Động Thông Tin Bác Sĩ Khi Đặt Lịch Khám Bệnh
+
+### 22/3: Sử Dụng Sequelize findOrCreate Để Lưu Thông Tin Đặt Lịch Khám Bệnh
