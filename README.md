@@ -9,3 +9,5 @@
 ### 22/3: Hoàn Thiện Component Thông Tin Khám Bệnh Của Bác Sĩ
 
 ### 22/3: Tạo Customize Modal Đặt Lịch Khám Bệnh
+
+### 22/3: Viết API Load Động Thông Tin Bác Sĩ Khi Đặt Lịch Khám Bệnh

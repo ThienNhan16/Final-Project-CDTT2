@@ -70,6 +70,7 @@ class DoctorSchedule extends Component {
   };
 
   async componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log("x");
     if (this.props.language !== prevProps.language) {
       let allDays = this.getArrDays(this.props.language);
       let res = await getScheduleDoctorByDate(
