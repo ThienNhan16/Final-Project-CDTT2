@@ -13,3 +13,5 @@
 ### 22/3: Viết API Load Động Thông Tin Bác Sĩ Khi Đặt Lịch Khám Bệnh
 
 ### 22/3: Sử Dụng Sequelize findOrCreate Để Lưu Thông Tin Đặt Lịch Khám Bệnh
+
+### 23/3: Hoàn Thiện Chức Năng Đặt Lịch Khám Bệnh Cho Bệnh Nhân
