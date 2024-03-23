@@ -17,3 +17,5 @@
 ### 23/3: Hoàn Thiện Chức Năng Đặt Lịch Khám Bệnh Cho Bệnh Nhân
 
 ### 23/3: Customize Data Gửi Email Đặt Lịch Khám Bệnh Với NodeMailer
+
+### 23/3: Hoàn Thiện Chức Năng Xác Nhận Lịch Hẹn Khám Bệnh Qua Email
