@@ -15,3 +15,5 @@
 ### 22/3: Sử Dụng Sequelize findOrCreate Để Lưu Thông Tin Đặt Lịch Khám Bệnh
 
 ### 23/3: Hoàn Thiện Chức Năng Đặt Lịch Khám Bệnh Cho Bệnh Nhân
+
+### 23/3: Customize Data Gửi Email Đặt Lịch Khám Bệnh Với NodeMailer
