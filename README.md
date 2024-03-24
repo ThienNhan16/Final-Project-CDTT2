@@ -25,3 +25,5 @@
 ### Tạo Chức Năng Thêm Chuyên Ngành Khám Bệnh
 
 ### Thêm Dữ Liệu Danh Sách Chuyên Khoa Khám Bệnh
+
+### Thêm Component Chi Tiết Chuyên Khoa Khám Bệnh
