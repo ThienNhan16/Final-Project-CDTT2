@@ -22,7 +22,7 @@ import CustomScrollbars from "../components/CustomScrollbars";
 import DetailDoctor from "./Patient/Doctor/DetailDoctor";
 import Doctor from "../routes/Doctor";
 import VerifyEmail from "./Patient/VerifyEmail";
-import DetailSpecialty from "./System/Specialty/DetailSpecialty";
+import DetailSpecialty from "./Patient/Specialty/DetailSpecialty";
 
 class App extends Component {
   handlePersistorState = () => {
