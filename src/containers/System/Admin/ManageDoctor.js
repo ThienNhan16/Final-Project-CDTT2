@@ -81,8 +81,9 @@ class ManageDoctor extends Component {
         });
       }
     }
+
     if (type === "PAYMENT" || type === "PROVINCE") {
-      inputData.map((item, index) => {
+      inputData?.map((item, index) => {
         let object = {};
         let labelVi = `${item.valueVi}`;
         let labelEn = `${item.valueEn}`;
@@ -93,7 +94,7 @@ class ManageDoctor extends Component {
     }
 
     if (type === "SPECIALTY") {
-      inputData.map((item, index) => {
+      inputData?.map((item, index) => {
         let object = {};
         object.label = item.name;
         object.value = item.id;
@@ -149,6 +150,7 @@ class ManageDoctor extends Component {
       let { resPayment, resPrice, resProvince } =
         this.props.allRequiredDoctorInfor;
       let dataSelectPrice = this.buildDataInputSelect(resPrice, "PRICE");
+      console.log(resPayment);
       let dataSelectPayment = this.buildDataInputSelect(resPayment, "PAYMENT");
       let dataSelectProvince = this.buildDataInputSelect(
         resProvince,
