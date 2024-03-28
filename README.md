@@ -29,3 +29,7 @@
 ### Thêm Component Chi Tiết Chuyên Khoa Khám Bệnh
 
 ### Design Giao Diện Chức Năng Xem Chi Tiết Chuyên Khoa
+
+### Load Động Data Section Xem Chi Tiết Chuyên Khoa
+
+### Hoàn Thiện Chức Năng Xem Chi Tiết Chyên Khoa Khám Bệnh
