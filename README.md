@@ -35,3 +35,5 @@
 ### Hoàn Thiện Chức Năng Xem Chi Tiết Chyên Khoa Khám Bệnh
 
 ### Tạo Dữ Liệu Các Cơ Sở Y Tế/Phòng Khám Bệnh
+
+### Hoàn Thiện Chức Năng Xem Chi Tiết Phòng Khám và Cơ Sở Y Tế
