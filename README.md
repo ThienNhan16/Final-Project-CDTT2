@@ -33,3 +33,5 @@
 ### Load Động Data Section Xem Chi Tiết Chuyên Khoa
 
 ### Hoàn Thiện Chức Năng Xem Chi Tiết Chyên Khoa Khám Bệnh
+
+### Tạo Dữ Liệu Các Cơ Sở Y Tế/Phòng Khám Bệnh
