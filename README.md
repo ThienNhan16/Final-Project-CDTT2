@@ -39,3 +39,5 @@
 ### Hoàn Thiện Chức Năng Xem Chi Tiết Phòng Khám và Cơ Sở Y Tế
 
 ### Tạo Base Giao Diện Quản Lý Danh Sách Lịch Hẹn Khám Bệnh Cho Bác Sỹ
+
+### Hiển Thị Danh Sách Bệnh Nhân Đặt Lịch Khám Bệnh Cho Bác Sỹ

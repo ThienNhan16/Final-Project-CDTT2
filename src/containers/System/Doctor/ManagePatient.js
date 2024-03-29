@@ -3,16 +3,36 @@ import { connect } from "react-redux";
 import { FormattedMessage } from "react-intl";
 import "./ManagePatient.scss";
 import DatePicker from "../../../components/Input/DatePicker";
-
+import { getAllPatientForDoctor } from "../../../services/userService";
+import moment from "moment";
 class DefaultClass extends Component {
   constructor(props) {
     super(props);
     this.state = {
       currentDate: new Date(),
+      dataPatient: [],
     };
   }
 
-  async componentDidMount() {}
+  async componentDidMount() {
+    let { user } = this.props;
+    let { currentDate } = this.state;
+    let formatDate = new Date(currentDate).getTime();
+    this.getDataPatient(user, formatDate);
+  }
+
+  getDataPatient = async (user, formatDate) => {
+    let res = await getAllPatientForDoctor({
+      doctorId: user.id,
+      date: formatDate,
+    });
+
+    if (res && res.errCode === 0) {
+      this.setState({
+        dataPatient: res.data,
+      });
+    }
+  };
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.language !== prevProps.language) {
@@ -20,12 +40,25 @@ class DefaultClass extends Component {
   }
 
   handleOnchangeDatePicker = (date) => {
-    this.setState({
-      currentDate: date[0],
-    });
+    this.setState(
+      {
+        currentDate: date[0],
+      },
+      () => {
+        let { user } = this.props;
+        let { currentDate } = this.state;
+        let formatDate = new Date(currentDate).getTime();
+        this.getDataPatient(user, formatDate);
+      }
+    );
   };
 
+  handleBtnConfirm = () => {};
+
+  handleBtnRemedy = () => {};
+
   render() {
+    let { dataPatient } = this.state;
     return (
       <div className="manage-patient-container">
         <div className="m-p-title">Quản lý bệnh nhân khám bệnh</div>
@@ -40,15 +73,46 @@ class DefaultClass extends Component {
           </div>
           <div className="col-12 table-manage-patient">
             <table style={{ width: "100%" }}>
-              <tr>
-                <th>name</th>
-                <th colSpan="2">Telephone</th>
-              </tr>
-              <tr>
-                <td>Heelo</td>
-                <td>123</td>
-                <td>123</td>
-              </tr>
+              <tbody>
+                <tr>
+                  <th>STT</th>
+                  <th>Thời gian</th>
+                  <th>Họ và tên</th>
+                  <th>Địa chỉ</th>
+                  <th>Giới tính</th>
+                  <th>Actions</th>
+                </tr>
+                {dataPatient && dataPatient.length > 0 ? (
+                  dataPatient.map((item, index) => {
+                    return (
+                      <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{item.timeTypeDataPatient.valueVi}</td>
+                        <td>{item.patientData.firstName}</td>
+                        <td>{item.patientData.address}</td>
+                        <td>{item.patientData.genderData.valueVi}</td>
+
+                        <td>
+                          <button
+                            className="mp-btn-confirm"
+                            onClick={() => this.handleBtnConfirm()}
+                          >
+                            Xác nhận
+                          </button>
+                          <button
+                            className="mp-btn-remedy"
+                            onClick={() => this.handleBtnRemedy()}
+                          >
+                            Gửi hoá đơn
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })
+                ) : (
+                  <tr>no data</tr>
+                )}
+              </tbody>
             </table>
           </div>
         </div>
@@ -60,6 +124,7 @@ class DefaultClass extends Component {
 const mapStateToProps = (state) => {
   return {
     language: state.app.language,
+    user: state.user.userInfo,
   };
 };
 
