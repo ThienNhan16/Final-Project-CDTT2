@@ -92,16 +92,19 @@ export const fetchRoleStart = () => {
 export const createNewUser = (data) => {
   return async (dispatch, getState) => {
     try {
-      let res = await createNewUser(data);
+      let res = await createNewUserService(data);
+
       if (res && res.errCode === 0) {
         toast.success("Create a new user succeed");
         dispatch(saveUserSuccess());
         dispatch(fetchAllUsersStart());
       } else {
         dispatch(saveUserFailed());
+        toast.error(res.errMessage);
       }
     } catch (e) {
       dispatch(saveUserFailed());
+      toast.error("Create a new user failed");
     }
   };
 };
@@ -118,8 +121,10 @@ export const fetchAllUsersStart = () => {
   return async (dispatch, getState) => {
     try {
       let res = await getAllUsers("ALL");
+      console.log(res);
       if (res && res.errCode === 0) {
-        dispatch(fetchAllUsersSuccess(res.users.reverse()));
+        dispatch(fetchAllUsersSuccess(res.users));
+        console.log("runned");
       } else {
         toast.error("fetch all users error !");
         dispatch(fetchAllUsersFailed());
@@ -133,6 +138,7 @@ export const fetchAllUsersStart = () => {
 
 export const fetchAllUsersSuccess = (data) => ({
   type: actionTypes.FETCH_ALL_USER_SUCCESS,
+  users: data,
 });
 
 export const fetchAllUsersFailed = () => ({

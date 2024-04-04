@@ -108,11 +108,13 @@ class UserRedux extends Component {
   };
 
   handleSaveUser = () => {
+    this.setState({
+      action: CRUD_ACTIONS.CREATE,
+    });
     let isValid = this.checkValidateInput();
     if (isValid === false) return;
 
     let { action } = this.state;
-
     if (action === CRUD_ACTIONS.CREATE) {
       this.props.createNewUser({
         email: this.state.email,
@@ -197,29 +199,11 @@ class UserRedux extends Component {
   };
 
   render() {
-    //  let genders = this.state.genderArr;
-    // let roles = this.state.roleArr;
-    // let positions = this.state.positionArr;
+    let genders = this.state.genderArr;
+    let roles = this.state.roleArr;
+    let positions = this.state.positionArr;
     let language = this.props.language;
     let isGetGenders = this.props.isLoadingGender;
-    let genders = [
-      { valueVi: "Nam", valueEn: "Male" },
-      { valueVi: "Nữ", valueEn: "Female" },
-      { valueVi: "Khác", valueEn: "Others" },
-    ];
-
-    let roles = [
-      { valueVi: "Nam", valueEn: "Male" },
-      { valueVi: "Nữ", valueEn: "Female" },
-      { valueVi: "Khác", valueEn: "Others" },
-    ];
-
-    let positions = [
-      { valueVi: "Nam", valueEn: "Male" },
-      { valueVi: "Nữ", valueEn: "Female" },
-      { valueVi: "Khác", valueEn: "Others" },
-    ];
-
     let {
       email,
       password,

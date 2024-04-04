@@ -1,17 +1,8 @@
 import React, { Component } from "react";
-import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import "./TableManageUser.scss";
 import * as actions from "../../../store/actions";
-
-import MarkdownIt from "markdown-it";
-import MdEditor from "react-markdown-editor-lite";
 import "react-markdown-editor-lite/lib/index";
-
-const mdParser = new MarkdownIt();
-function handleEditorChange({ html, text }) {
-  console.log("handleEditorChange", html, text);
-}
 
 class TableManageUser extends Component {
   constructor(props) {
@@ -34,7 +25,7 @@ class TableManageUser extends Component {
   }
 
   handleDeleteUser = (user) => {
-    this.props.deleAUserRedux(user.id);
+    this.props.deleteAUserRedux(user.id);
   };
 
   handleEditUser = (user) => {
@@ -43,6 +34,7 @@ class TableManageUser extends Component {
 
   render() {
     let arrUsers = this.state.usersRedux;
+    console.log(arrUsers);
     return (
       <React.Fragment>
         <table id="TableManageUser">
@@ -72,7 +64,7 @@ class TableManageUser extends Component {
                       </button>
                       <button
                         className="btn-delete"
-                        onClick={() => this.handleDeleteUser()}
+                        onClick={() => this.handleDeleteUser(item)}
                       >
                         <i className="fas fa-trash"></i>
                       </button>
@@ -82,12 +74,6 @@ class TableManageUser extends Component {
               })}
           </tbody>
         </table>
-
-        <MdEditor
-          style={{ height: "500px" }}
-          renderHTML={(text) => mdParser.render(text)}
-          onChange={handleEditorChange}
-        />
       </React.Fragment>
     );
   }

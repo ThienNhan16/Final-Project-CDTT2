@@ -11,11 +11,6 @@ import Select from "react-select";
 import { CRUD_ACTIONS, LANGUAGES } from "../../../utils";
 import { getDetailInforDoctor } from "../../../services/userService";
 
-const options = [
-  { value: "chocolate", label: "chocolate" },
-  { value: "strawberry", label: "strawberry" },
-  { value: "vanilla", label: "vanilla" },
-];
 const mdParser = new MarkdownIt();
 
 class ManageDoctor extends Component {
@@ -143,7 +138,7 @@ class ManageDoctor extends Component {
         "SPECIALTY"
       );
 
-      let dataSelectClinic = this.buildDataInputSelect(resSpecialty, "CLINIC");
+      let dataSelectClinic = this.buildDataInputSelect(resClinic, "CLINIC");
 
       this.setState({
         listPrice: dataSelectPrice,
@@ -163,6 +158,7 @@ class ManageDoctor extends Component {
 
       let { resPayment, resPrice, resProvince } =
         this.props.allRequiredDoctorInfor;
+      console.log(resPayment);
       let dataSelectPrice = this.buildDataInputSelect(resPrice, "PRICE");
       let dataSelectPayment = this.buildDataInputSelect(resPayment, "PAYMENT");
       let dataSelectProvince = this.buildDataInputSelect(
@@ -322,6 +318,7 @@ class ManageDoctor extends Component {
 
   render() {
     let { hasOldData } = this.state;
+
     return (
       <div className="manage-doctor-container">
         <div className="manage-doctor-title">
