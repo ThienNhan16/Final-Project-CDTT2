@@ -121,10 +121,9 @@ export const fetchAllUsersStart = () => {
   return async (dispatch, getState) => {
     try {
       let res = await getAllUsers("ALL");
-      console.log(res);
+
       if (res && res.errCode === 0) {
         dispatch(fetchAllUsersSuccess(res.users));
-        console.log("runned");
       } else {
         toast.error("fetch all users error !");
         dispatch(fetchAllUsersFailed());
@@ -180,11 +179,11 @@ export const editAUser = (data) => {
         toast.success("Update the user succeed!");
         dispatch(editUserSuccess());
       } else {
-        toast.error("Update the user error");
+        toast.error("Update the user error" + res.errMessage);
         dispatch(editUserFailed());
       }
     } catch (e) {
-      toast.error("Update the user error");
+      toast.error("Update the user 2 error");
       dispatch(editUserFailed());
     }
   };
@@ -202,6 +201,7 @@ export const fetchTopDoctor = () => {
   return async (dispatch, getState) => {
     try {
       let res = await getTopDoctorHomeService("");
+
       if (res && res.errCode === 0) {
         dispatch({
           type: actionTypes.FETCH_TOP_DOCTORS_SUCCESS,
@@ -271,7 +271,6 @@ export const fetchAllScheduleTime = () => {
     try {
       let res = await getAllCodeService("TIME");
       if (res && res.errCode === 0) {
-        toast.success("Save detail doctor succeed!");
         dispatch({
           type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_SUCCESS,
           dataTime: res.data,

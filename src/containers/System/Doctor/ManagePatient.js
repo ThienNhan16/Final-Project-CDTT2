@@ -13,7 +13,7 @@ import RemedyModal from "./RemedyModal";
 import { toast } from "react-toastify";
 import LoadingOverlay from "react-loading-overlay";
 
-class DefaultClass extends Component {
+class ManagePatient extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -219,4 +219,4 @@ const mapDispatchToProps = (dispatch) => {
   return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DefaultClass);
+export default connect(mapStateToProps, mapDispatchToProps)(ManagePatient);

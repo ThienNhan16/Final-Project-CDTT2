@@ -28,7 +28,6 @@ class UserRedux extends Component {
       position: "",
       role: "",
       avatar: "",
-
       action: "",
       userEditId: "",
     };
@@ -108,9 +107,6 @@ class UserRedux extends Component {
   };
 
   handleSaveUser = () => {
-    this.setState({
-      action: CRUD_ACTIONS.CREATE,
-    });
     let isValid = this.checkValidateInput();
     if (isValid === false) return;
 
@@ -122,11 +118,11 @@ class UserRedux extends Component {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         address: this.state.address,
-        phonenumber: this.state.phoneNumber,
+        phoneNumber: this.state.phoneNumber,
         gender: this.state.gender,
         roleId: this.state.role,
         positionId: this.state.position,
-        avatar: this.setState.avatar,
+        avatar: this.state.avatar,
       });
     }
 
@@ -138,11 +134,11 @@ class UserRedux extends Component {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         address: this.state.address,
-        phonenumber: this.state.phoneNumber,
+        phoneNumber: this.state.phoneNumber,
         gender: this.state.gender,
         roleId: this.state.role,
         positionId: this.state.position,
-        avatar: this.setState.avatar,
+        avatar: this.state.avatar,
       });
     }
   };
@@ -187,7 +183,7 @@ class UserRedux extends Component {
       firstName: user.firstName,
       lastName: user.lastName,
       address: user.address,
-      phonenumber: user.phoneNumber,
+      phoneNumber: user.phoneNumber,
       gender: user.gender,
       role: user.roleId,
       position: user.positionId,
@@ -462,6 +458,7 @@ const mapDispatchToProps = (dispatch) => {
     getRoleStart: () => dispatch(actions.fetchRoleStart()),
     createNewUser: (data) => dispatch(actions.createNewUser(data)),
     fetchUserRedux: () => dispatch(actions.fetchAllUsersStart()),
+    editAUserRedux: (data) => dispatch(actions.editAUser(data)),
   };
 };
 

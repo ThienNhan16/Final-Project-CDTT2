@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import "./UserManage.scss";
 import {
@@ -23,12 +22,12 @@ class UserManage extends Component {
   }
 
   async componentDidMount() {
-    const arr = await this.getAllUsersFromReact();
+    await this.getAllUsersFromReact();
   }
 
   getAllUsersFromReact = async () => {
     let response = await getAllUsers("ALL");
-    console.log(`response ${response}`);
+
     if (response && response.errCode === 0) {
       this.setState({
         arrUsers: response.users,
@@ -107,7 +106,6 @@ class UserManage extends Component {
 
   render() {
     let arrUsers = this.state.arrUsers;
-    console.log(arrUsers);
     return (
       <div className="users-container">
         <ModalUser

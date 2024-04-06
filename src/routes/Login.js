@@ -49,9 +49,7 @@ class Login extends Component {
   };
 
   processLogin = () => {
-    const { username, password } = this.state;
-
-    const { adminLoginSuccess, adminLoginFail } = this.props;
+    const { adminLoginSuccess } = this.props;
     let loginBody = {
       username: "admin",
       password: "123456",
@@ -70,7 +68,7 @@ class Login extends Component {
     try {
       adminService.login(loginBody);
     } catch (e) {
-      console.log("error login : ", e);
+      console.error("error login : ", e);
     }
   };
 
