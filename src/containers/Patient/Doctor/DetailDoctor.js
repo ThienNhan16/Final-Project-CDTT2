@@ -45,6 +45,7 @@ class DetailDoctor extends Component {
     let { language } = this.props;
     let { detailDoctor } = this.state;
     console.log(detailDoctor);
+    console.log(detailDoctor.image?.toString());
     let nameVi = "";
     let nameEn = "";
     if (detailDoctor && detailDoctor.positionData) {
