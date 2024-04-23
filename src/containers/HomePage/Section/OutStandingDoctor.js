@@ -31,6 +31,7 @@ class OutstandingDoctor extends Component {
 
   render() {
     let arrDoctors = this.state.arrDoctors;
+    console.log(arrDoctors);
     let { language } = this.props;
     // arrDoctors = arrDoctors.concat(arrDoctors).concat(arrDoctors);
 
@@ -42,7 +43,7 @@ class OutstandingDoctor extends Component {
               <FormattedMessage id="homepage.outstanding-doctor" />
             </span>
             <button className="btn-section">
-              <FormattedMessage id="homepage.more-info" />
+              <FormattedMessage id="homepage.more-infor" />
             </button>
           </div>
 

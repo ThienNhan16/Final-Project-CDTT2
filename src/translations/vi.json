@@ -38,7 +38,8 @@
       "manage-handbook": "Quản lý cẩm nang"
     },
     "doctor": {
-      "manage-schedule": "Quản lý kế hoạch khám bệnh"
+      "manage-schedule": "Quản lý kế hoạch khám bệnh",
+      "manage-patient": "Quản lý bệnh nhân khám bệnh"
     }
   },
 
@@ -59,7 +60,8 @@
   },
   "homepage": {
     "outstanding-doctor": "Bác sĩ nổi bật tuần qua",
-    "more-info": "Xem thêm"
+    "more-infor": "Xem thêm",
+    "specialty-popular": "Chuyên khoa phổ biến"
   },
 
   "manage-schedule": {
@@ -74,6 +76,27 @@
       "no-schedule": "Bác sĩ không có lịch hẹn trong thời gian này, vui lòng chọn thời gian khác",
       "choose": "chọn",
       "book-free": " và đặt (miễn phí)"
+    },
+    "extra-infor-doctor": {
+      "text-address": "Địa chỉ khám",
+      "price": "Giá khám",
+      "detail": "Xem chi tiết",
+      "payment": "Người bệnh có thể thanh toán chi phí bằng hình thức: ",
+      "hide-price": "Ẩn bảng giá"
+    },
+    "booking-modal": {
+      "title": "Thôn tin đặt lịch khám bệnh",
+      "fullName": "Họ và tên",
+      "phoneNumber": "Số điện thoại",
+      "email": "Địa chỉ emain",
+      "address": "địa chỉ liên lạc",
+      "reason": "lý do khám",
+      "birthday": "ngày sinh",
+      "gender": "giới tính",
+      "btnConFirm": "xác nhận",
+      "btnCancel": "huỷ",
+      "priceBooking": "miễn phí đặt lịch",
+      "price": "giá khám"
     }
   },
   "admin": {
@@ -82,7 +105,15 @@
       "select-doctor": "Chọn bác sĩ",
       "intro": "Thông tin giới thiệu",
       "add": "Tạo thông tin",
-      "save": "Lưu thông tin"
+      "save": "Lưu thông tin",
+      "price": "Giá khám bệnh",
+      "payment": "Phương thức thanh toán",
+      "province": "Tỉnh thành",
+      "nameClinic": "Tên phòng khám",
+      "addressClinic": "Địa chỉ phòng khám",
+      "note": "Ghi chú",
+      "specialty": "Chọn chuyên khoa",
+      "select-clinic": "Chọn phòng khám"
     }
   }
 }

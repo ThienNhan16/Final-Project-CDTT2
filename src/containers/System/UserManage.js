@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import "./UserManage.scss";
 import {
@@ -28,6 +27,7 @@ class UserManage extends Component {
 
   getAllUsersFromReact = async () => {
     let response = await getAllUsers("ALL");
+
     if (response && response.errCode === 0) {
       this.setState({
         arrUsers: response.users,

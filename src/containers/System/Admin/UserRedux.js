@@ -28,7 +28,6 @@ class UserRedux extends Component {
       position: "",
       role: "",
       avatar: "",
-
       action: "",
       userEditId: "",
     };
@@ -112,7 +111,6 @@ class UserRedux extends Component {
     if (isValid === false) return;
 
     let { action } = this.state;
-
     if (action === CRUD_ACTIONS.CREATE) {
       this.props.createNewUser({
         email: this.state.email,
@@ -120,11 +118,11 @@ class UserRedux extends Component {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         address: this.state.address,
-        phonenumber: this.state.phoneNumber,
+        phoneNumber: this.state.phoneNumber,
         gender: this.state.gender,
         roleId: this.state.role,
         positionId: this.state.position,
-        avatar: this.setState.avatar,
+        avatar: this.state.avatar,
       });
     }
 
@@ -136,11 +134,11 @@ class UserRedux extends Component {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         address: this.state.address,
-        phonenumber: this.state.phoneNumber,
+        phoneNumber: this.state.phoneNumber,
         gender: this.state.gender,
         roleId: this.state.role,
         positionId: this.state.position,
-        avatar: this.setState.avatar,
+        avatar: this.state.avatar,
       });
     }
   };
@@ -185,7 +183,7 @@ class UserRedux extends Component {
       firstName: user.firstName,
       lastName: user.lastName,
       address: user.address,
-      phonenumber: user.phoneNumber,
+      phoneNumber: user.phoneNumber,
       gender: user.gender,
       role: user.roleId,
       position: user.positionId,
@@ -197,29 +195,11 @@ class UserRedux extends Component {
   };
 
   render() {
-    //  let genders = this.state.genderArr;
-    // let roles = this.state.roleArr;
-    // let positions = this.state.positionArr;
+    let genders = this.state.genderArr;
+    let roles = this.state.roleArr;
+    let positions = this.state.positionArr;
     let language = this.props.language;
     let isGetGenders = this.props.isLoadingGender;
-    let genders = [
-      { valueVi: "Nam", valueEn: "Male" },
-      { valueVi: "Nữ", valueEn: "Female" },
-      { valueVi: "Khác", valueEn: "Others" },
-    ];
-
-    let roles = [
-      { valueVi: "Nam", valueEn: "Male" },
-      { valueVi: "Nữ", valueEn: "Female" },
-      { valueVi: "Khác", valueEn: "Others" },
-    ];
-
-    let positions = [
-      { valueVi: "Nam", valueEn: "Male" },
-      { valueVi: "Nữ", valueEn: "Female" },
-      { valueVi: "Khác", valueEn: "Others" },
-    ];
-
     let {
       email,
       password,
@@ -478,6 +458,7 @@ const mapDispatchToProps = (dispatch) => {
     getRoleStart: () => dispatch(actions.fetchRoleStart()),
     createNewUser: (data) => dispatch(actions.createNewUser(data)),
     fetchUserRedux: () => dispatch(actions.fetchAllUsersStart()),
+    editAUserRedux: (data) => dispatch(actions.editAUser(data)),
   };
 };
 

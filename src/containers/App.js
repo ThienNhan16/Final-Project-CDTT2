@@ -9,21 +9,18 @@ import {
   userIsAuthenticated,
   userIsNotAuthenticated,
 } from "../hoc/authentication";
-
 import { path } from "../utils";
-
 import Home from "../routes/Home";
 // import Login from '../routes/Login';
 import Login from "./Auth/Login";
-import Header from "./Header/Header";
 import System from "../routes/System";
-
-import { CustomToastCloseButton } from "../components/CustomToast";
-import ConfirmModal from "../components/ConfirmModal";
 import HomePage from "./HomePage/HomePage";
 import CustomScrollbars from "../components/CustomScrollbars";
 import DetailDoctor from "./Patient/Doctor/DetailDoctor";
 import Doctor from "../routes/Doctor";
+import VerifyEmail from "./Patient/VerifyEmail";
+import DetailSpecialty from "./Patient/Specialty/DetailSpecialty";
+import DetailClinic from "./Patient/Clinic/DetailClinic";
 
 class App extends Component {
   handlePersistorState = () => {
@@ -73,13 +70,25 @@ class App extends Component {
                   <Route path={path.HOMEPAGE} component={HomePage} />
 
                   <Route path={path.DETAIL_DOCTOR} component={DetailDoctor} />
+
+                  <Route
+                    path={path.DETAIL_SPECIALTY}
+                    component={DetailSpecialty}
+                  />
+
+                  <Route path={path.DETAIL_CLINIC} component={DetailClinic} />
+
+                  <Route
+                    path={path.VERIFY_EMAIL_BOOKING}
+                    component={VerifyEmail}
+                  />
                 </Switch>
               </CustomScrollbars>
             </div>
 
             <ToastContainer
               position="bottom-right"
-              autoClose={500}
+              autoClose={3000}
               hideProgressBar={false}
               newestOnTop={false}
               closeOnClick
