@@ -6,6 +6,8 @@ import { getDetailInforDoctor } from "../../../services/userService";
 import { LANGUAGES } from "../../../utils";
 import DoctorScheDule from "./DoctorSchedule";
 import DoctorExtraInfor from "./DoctorExtraInfor";
+import LikeAndShare from "../SocialPlugin/LikeAndShare";
+import Comment from "../SocialPlugin/Comment";
 
 class DetailDoctor extends Component {
   constructor(props) {
@@ -51,21 +53,29 @@ class DetailDoctor extends Component {
     if (detailDoctor && detailDoctor.positionData) {
       nameVi = `${detailDoctor.positionData.valueVi}, ${detailDoctor.lastName} ${detailDoctor.firstName}`;
 
-      nameVi = `${detailDoctor.positionData.valueEn}, ${detailDoctor.lastName} ${detailDoctor.firstName}`;
+      nameEn = `${detailDoctor.positionData.valueEn}, ${detailDoctor.lastName} ${detailDoctor.firstName}`;
     }
+
+    let currentURL =
+      process.env.REACT_APP_IS_LOCALHOST === 1 ? "" : window.location.href;
     return (
       <>
         <HomeHeader isShowBanner={false} />
         <div className="doctor-detail-container">
           <div className="intro-doctor">
-            <div
-              className="content-left"
-              style={{
-                backgroundImage: `url(${
+            <div className="content-left">
+              <img
+                alt="doctor"
+                src={
                   detailDoctor && detailDoctor.image ? detailDoctor.image : ""
-                })`,
-              }}
-            ></div>
+                }
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "cover",
+                }}
+              />
+            </div>
 
             <div className="content-right">
               <div className="up">
@@ -78,6 +88,9 @@ class DetailDoctor extends Component {
                   detailDoctor.Markdown.description && (
                     <span>{detailDoctor.Markdown.description}</span>
                   )}
+                <div className="like-share-plugin">
+                  <LikeAndShare dataHref={currentURL} />
+                </div>
               </div>
             </div>
           </div>
@@ -105,7 +118,9 @@ class DetailDoctor extends Component {
               )}
           </div>
 
-          <div className="comment-doctor"></div>
+          <div className="comment-doctor">
+            <Comment dataHref={currentURL} width={"100%"} />
+          </div>
         </div>
       </>
     );

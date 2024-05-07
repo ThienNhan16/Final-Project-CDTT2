@@ -113,6 +113,7 @@ class DetailSpecialty extends Component {
   render() {
     let { arrDoctorId, dataDetailSpecialty, listProvince } = this.state;
     let { language } = this.props;
+
     return (
       <div className="detail-specialty-container">
         <HomeHeader />
@@ -121,7 +122,7 @@ class DetailSpecialty extends Component {
             {dataDetailSpecialty && !_.isEmpty(dataDetailSpecialty) && (
               <div
                 dangerouslySetInnerHTML={{
-                  _html: dataDetailSpecialty.description,
+                  __html: dataDetailSpecialty.descriptionHTML,
                 }}
               ></div>
             )}

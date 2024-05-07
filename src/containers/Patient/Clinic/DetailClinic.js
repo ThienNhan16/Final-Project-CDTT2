@@ -45,7 +45,7 @@ class DetailClinic extends Component {
         }
 
         this.setState({
-          dataDetailSpecialty: res.data,
+          dataDetailClinic: res.data,
           arrDoctorId: arrDoctorId,
         });
       }
@@ -59,6 +59,7 @@ class DetailClinic extends Component {
 
   render() {
     let { arrDoctorId, dataDetailClinic } = this.state;
+    console.log(this.state);
     let { language } = this.props;
     return (
       <div className="detail-specialty-container">
@@ -70,7 +71,7 @@ class DetailClinic extends Component {
                 <div>{dataDetailClinic.name}</div>
                 <div
                   dangerouslySetInnerHTML={{
-                    _html: dataDetailClinic.description,
+                    __html: dataDetailClinic.descriptionHTML,
                   }}
                 ></div>
               </>

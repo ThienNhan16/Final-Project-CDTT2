@@ -44,7 +44,7 @@ class ManageSpecialty extends Component {
   };
 
   handleOnChangeImage = async (event) => {
-    let data = event.target.Files;
+    let data = event.target.files;
     let file = data[0];
     if (file) {
       let base64 = await CommonUtils.getBase64(file);
@@ -56,6 +56,7 @@ class ManageSpecialty extends Component {
 
   handleSaveNewSpecialty = async () => {
     let res = await createNewSpecialty(this.state);
+    console.log(this.state);
     if (res && res.errCode === 0) {
       toast.success("Add new specialty succeeds !");
       this.setState({

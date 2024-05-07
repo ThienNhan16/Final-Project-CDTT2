@@ -20,9 +20,12 @@ class Specialty extends Component {
         dataSpecialty: res.data ? res.data : [],
       });
     }
+    console.log("specialty: ");
+    console.log(res);
   }
 
   handleViewDetailSpecialty = (item) => {
+    console.log(item);
     if (this.props.history) {
       this.props.history.push(`/detail-specialty/${item.id}`);
     }

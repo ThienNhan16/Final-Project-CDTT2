@@ -45,7 +45,7 @@ class ManageClinic extends Component {
   };
 
   handleOnChangeImage = async (event) => {
-    let data = event.target.Files;
+    let data = event.target.files;
     let file = data[0];
     if (file) {
       let base64 = await CommonUtils.getBase64(file);
@@ -56,7 +56,9 @@ class ManageClinic extends Component {
   };
 
   handleSaveNewClinic = async () => {
+    console.log("elo");
     let res = await createNewClinic(this.state);
+    console.log("elo 2");
     if (res && res.errCode === 0) {
       toast.success("Add new Clinic succeeds !");
       this.setState({
@@ -67,7 +69,7 @@ class ManageClinic extends Component {
         descriptionMarkdown: "",
       });
     } else {
-      toast.error("something wrongs...");
+      toast.error("something wrongs..." + res.errMessage);
     }
   };
 
@@ -118,7 +120,7 @@ class ManageClinic extends Component {
           <div className="col-12">
             <button
               className="btn-save-specialty"
-              onClick={() => this.handleSaveNewSpecialty()}
+              onClick={() => this.handleSaveNewClinic()}
             >
               Save
             </button>
