@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { FormattedMessage } from "react-intl";
 import "./ManageClinic.scss";
 import MarkdownIt from "markdown-it";
 import MEditor from "react-markdown-editor-lite";

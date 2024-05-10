@@ -122,7 +122,7 @@ class ManageSchedule extends Component {
     } else {
       toast.error("error saveBulkScheduleDocotr");
     }
-    console.log(res);
+  
   };
 
   render() {

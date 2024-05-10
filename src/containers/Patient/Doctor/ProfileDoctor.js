@@ -19,7 +19,7 @@ class ProfileDoctor extends Component {
 
   async componentDidMount() {
     let data = await this.getInforDoctor(this.props.doctorId);
-    console.log(`${data}`);
+
     this.setState({
       dataProfile: data,
     });
@@ -32,7 +32,6 @@ class ProfileDoctor extends Component {
       if (res && res.errCode === 0) {
         result = res.data;
       }
-      console.log(res);
     }
 
     return result;

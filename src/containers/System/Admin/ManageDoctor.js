@@ -211,9 +211,9 @@ class ManageDoctor extends Component {
     let { listPayment, listPrice, listProvince, listSpecialty, listClinic } =
       this.state;
 
-    console.log(selectedOption.value);
+  
     let res = await getDetailInforDoctor(selectedOption.value);
-    console.log(res);
+  
     if (res && res.errCode === 0 && res.data.Markdown) {
       let markdown = res.data.Markdown;
 

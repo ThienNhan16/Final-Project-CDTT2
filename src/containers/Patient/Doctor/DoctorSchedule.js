@@ -2,12 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./DoctorSchedule.scss";
 import moment from "moment";
-import localization from "moment/locale/vi";
 import { LANGUAGES } from "../../../utils";
 import { getScheduleDoctorByDate } from "../../../services/userService";
 import { FormattedMessage } from "react-intl";
 import BookingModal from "./Modal/BookingModal";
-import { times } from "lodash";
 
 class DoctorSchedule extends Component {
   constructor(props) {
@@ -178,7 +176,7 @@ class DoctorSchedule extends Component {
 
                   <div className="book-free">
                     <span>
-                      <FormattedMessage id="patient.detail-doctor.choose" />
+                      <FormattedMessage id="patient.detail-doctor.choose" />{" "}
                       <i className="far fa-hand-point-up"></i>
                       <FormattedMessage id="patient.detail-doctor.book-free" />
                     </span>

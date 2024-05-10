@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./DoctorExtraInfor.scss";
-import {
-  getScheduleDoctorByDate,
-  getExtraInforDoctorById,
-} from "../../../services/userService";
+import { getExtraInforDoctorById } from "../../../services/userService";
 import { LANGUAGES } from "../../../utils";
 import { FormattedMessage } from "react-intl";
 import NumberFormat from "react-number-format";
@@ -54,7 +51,6 @@ class DoctorExtraInfor extends Component {
   };
   render() {
     let { isShowDetailInfor, extraInfor } = this.state;
-    console.log(extraInfor);
     let { language } = this.props;
 
     return (

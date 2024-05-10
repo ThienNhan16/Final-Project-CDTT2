@@ -1,3 +1,7 @@
+._loading_overlay_overlay {
+  z-index: 10000000 !important;
+}
+
 .booking-modal-container {
   .booking-modal-content {
     display: flex;

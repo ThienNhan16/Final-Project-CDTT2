@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import "./HomeHeader.scss";
 import logo from "../../assets/logo.svg";
 import { FormattedMessage } from "react-intl";
-import { LANGUAGES, languages } from "../../utils";
+import { LANGUAGES } from "../../utils";
 import { withRouter } from "react-router";
 import { changeLanguageApp } from "../../store/actions";
 
@@ -34,7 +34,7 @@ class HomeHeader extends Component {
               ></img>
             </div>
             <div className="center-content">
-              <div className="child-content">
+              <a className="child-content" href="#section-specialty-id">
                 <div>
                   <strong>
                     <FormattedMessage id="homeheader.specialty" />
@@ -43,8 +43,8 @@ class HomeHeader extends Component {
                 <div className="subs-title">
                   <FormattedMessage id="homeheader.searchdoctor" />
                 </div>
-              </div>
-              <div className="child-content">
+              </a>
+              <a className="child-content" href="#section-clinic-id">
                 <div>
                   <strong>
                     <FormattedMessage id="homeheader.health-facility" />
@@ -53,8 +53,8 @@ class HomeHeader extends Component {
                 <div className="subs-title">
                   <FormattedMessage id="homeheader.select-room" />
                 </div>
-              </div>
-              <div className="child-content">
+              </a>
+              <a className="child-content" href="#section-doctor-id">
                 <div>
                   <strong>
                     <FormattedMessage id="homeheader.doctor" />
@@ -63,7 +63,7 @@ class HomeHeader extends Component {
                 <div className="subs-title">
                   <FormattedMessage id="homeheader.select-doctor" />
                 </div>
-              </div>
+              </a>
               <div className="child-content">
                 <div>
                   <strong>

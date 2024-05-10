@@ -4,7 +4,7 @@ import { FormattedMessage } from "react-intl";
 import "./BookingModal.scss";
 import { Modal } from "reactstrap";
 import ProfileDoctor from "../ProfileDoctor";
-import _, { times } from "lodash";
+import _ from "lodash";
 import DatePicker from "../../../../components/Input/DatePicker";
 import * as actions from "../../../../store/actions";
 import { LANGUAGES } from "../../../../utils";
@@ -83,7 +83,6 @@ class BookingModal extends Component {
   };
 
   handleOnchangeDatePicker = (date) => {
-    console.log(date);
     this.setState({
       birthday: date[0],
     });

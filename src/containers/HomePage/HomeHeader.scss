@@ -47,6 +47,12 @@
           font-size: 14px;
           color: $zinc-500;
         }
+
+        &:hover {
+          cursor: pointer;
+          text-decoration: none;
+          color: $blue-500;
+        }
       }
     }
     .right-content {

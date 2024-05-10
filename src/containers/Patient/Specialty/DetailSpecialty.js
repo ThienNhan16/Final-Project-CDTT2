@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { FormattedMessage } from "react-intl";
 import "./DetailSpecialty.scss";
 import HomeHeader from "../../HomePage/HomeHeader";
 import DoctorSchedule from "../Doctor/DoctorSchedule";
@@ -156,7 +155,10 @@ class DetailSpecialty extends Component {
                   </div>
                   <div className="dt-content-right">
                     <div className="doctor-schedule">
-                      <DoctorSchedule DoctorExtraInfor={item} />
+                      <DoctorSchedule
+                        DoctorExtraInfor={item}
+                        doctorIdFromParent={item}
+                      />
                     </div>
                   </div>
                   <div className="doctor-extra-infor">

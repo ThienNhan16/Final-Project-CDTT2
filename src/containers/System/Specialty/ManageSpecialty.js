@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { FormattedMessage } from "react-intl";
 import "./ManageSpecialty.scss";
 import MarkdownIt from "markdown-it";
 import MEditor from "react-markdown-editor-lite";
@@ -56,7 +55,7 @@ class ManageSpecialty extends Component {
 
   handleSaveNewSpecialty = async () => {
     let res = await createNewSpecialty(this.state);
-    console.log(this.state);
+
     if (res && res.errCode === 0) {
       toast.success("Add new specialty succeeds !");
       this.setState({

@@ -20,12 +20,10 @@ class Specialty extends Component {
         dataSpecialty: res.data ? res.data : [],
       });
     }
-    console.log("specialty: ");
-    console.log(res);
   }
 
   handleViewDetailSpecialty = (item) => {
-    console.log(item);
+   
     if (this.props.history) {
       this.props.history.push(`/detail-specialty/${item.id}`);
     }
@@ -33,7 +31,10 @@ class Specialty extends Component {
   render() {
     let { dataSpecialty } = this.state;
     return (
-      <div className="section-share section-specialty">
+      <div
+        className="section-share section-specialty"
+        id="section-specialty-id"
+      >
         <div className="section-container">
           <div className="section-header">
             <span className="title-section">

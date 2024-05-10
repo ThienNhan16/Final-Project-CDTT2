@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { FormattedMessage } from "react-intl";
 import "./ManagePatient.scss";
 import DatePicker from "../../../components/Input/DatePicker";
 import {
   getAllPatientForDoctor,
   postSendRemedy,
 } from "../../../services/userService";
-import moment from "moment";
 import { LANGUAGES } from "../../../utils";
 import RemedyModal from "./RemedyModal";
 import { toast } from "react-toastify";
@@ -39,10 +37,6 @@ class ManagePatient extends Component {
       date: formatDate,
     });
 
-    console.log(res);
-    console.log(user);
-    console.log(formatDate);
-
     if (res && res.errCode === 0) {
       this.setState({
         dataPatient: res.data,
@@ -67,7 +61,6 @@ class ManagePatient extends Component {
   };
 
   handleBtnConfirm = (item) => {
-    console.log(item);
     let data = {
       doctorId: item.doctorId,
       patientId: item.patientId,
@@ -121,15 +114,9 @@ class ManagePatient extends Component {
     }
   };
 
-  // handleBtnRemedy = () => {
-  //   this.setState({
-  //     isOpenRemedyModal: true,
-  //   });
-  // };
-
   render() {
     let { dataPatient, isOpenRemedyModal, dataModal } = this.state;
-    console.log(isOpenRemedyModal);
+
     let { language } = this.props;
     return (
       <>
@@ -174,10 +161,10 @@ class ManagePatient extends Component {
                         return (
                           <tr key={index}>
                             <td>{index + 1}</td>
-                            <td>{item.timeTypeDataPatient.valueVi}</td>
+                            <td>{time}</td>
                             <td>{item.patientData.firstName}</td>
                             <td>{item.patientData.address}</td>
-                            <td>{item.patientData.genderData.valueVi}</td>
+                            <td>{gender}</td>
 
                             <td>
                               <button
@@ -186,12 +173,6 @@ class ManagePatient extends Component {
                               >
                                 Xác nhận
                               </button>
-                              {/* <button
-                                className="mp-btn-remedy"
-                                onClick={() => this.handleBtnRemedy()}
-                              >
-                                Gửi hoá đơn
-                              </button> */}
                             </td>
                           </tr>
                         );

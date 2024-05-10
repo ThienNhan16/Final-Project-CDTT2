@@ -1,17 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { FormattedMessage } from "react-intl";
 import "./DetailClinic.scss";
 import HomeHeader from "../../HomePage/HomeHeader";
 import DoctorSchedule from "../Doctor/DoctorSchedule";
 import DoctorExtraInfor from "../Doctor/DoctorExtraInfor";
 import ProfileDoctor from "../Doctor/ProfileDoctor";
-import {
-  getAllDetailClinicById,
-  getAllCodeService,
-} from "../../../services/userService";
+import { getAllDetailClinicById } from "../../../services/userService";
 import _ from "lodash";
-import { LANGUAGES } from "../../../utils";
 
 class DetailClinic extends Component {
   constructor(props) {
@@ -59,8 +54,7 @@ class DetailClinic extends Component {
 
   render() {
     let { arrDoctorId, dataDetailClinic } = this.state;
-    console.log(this.state);
-    let { language } = this.props;
+
     return (
       <div className="detail-specialty-container">
         <HomeHeader />
@@ -94,7 +88,10 @@ class DetailClinic extends Component {
                   </div>
                   <div className="dt-content-right">
                     <div className="doctor-schedule">
-                      <DoctorSchedule DoctorExtraInfor={item} />
+                      <DoctorSchedule
+                        DoctorExtraInfor={item}
+                        doctorIdFromParent={item}
+                      />
                     </div>
                   </div>
                   <div className="doctor-extra-infor">

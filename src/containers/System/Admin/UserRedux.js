@@ -210,7 +210,6 @@ class UserRedux extends Component {
       gender,
       position,
       role,
-      avatar,
     } = this.state;
 
     return (
