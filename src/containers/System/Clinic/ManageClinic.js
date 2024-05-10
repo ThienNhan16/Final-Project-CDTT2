@@ -56,9 +56,8 @@ class ManageClinic extends Component {
   };
 
   handleSaveNewClinic = async () => {
-    console.log("elo");
     let res = await createNewClinic(this.state);
-    console.log("elo 2");
+
     if (res && res.errCode === 0) {
       toast.success("Add new Clinic succeeds !");
       this.setState({

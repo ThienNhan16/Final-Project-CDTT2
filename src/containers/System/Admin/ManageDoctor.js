@@ -60,7 +60,7 @@ class ManageDoctor extends Component {
           let labelVi = `${item.lastName} ${item.firstName}`;
           let labelEn = `${item.lastName} ${item.firstName}`;
           object.label = language === LANGUAGES.VI ? labelVi : labelEn;
-          object.value = item.keyMap;
+          object.value = item.id;
           result.push(object);
         });
       }
@@ -211,9 +211,11 @@ class ManageDoctor extends Component {
     let { listPayment, listPrice, listProvince, listSpecialty, listClinic } =
       this.state;
 
+    console.log(selectedOption.value);
     let res = await getDetailInforDoctor(selectedOption.value);
-    if (res && res.errCode === 0 && res.data.markdown) {
-      let markdown = res.data.markdown;
+    console.log(res);
+    if (res && res.errCode === 0 && res.data.Markdown) {
+      let markdown = res.data.Markdown;
 
       let addressClinic = "",
         nameClinic = "",
@@ -329,7 +331,9 @@ class ManageDoctor extends Component {
             </label>
             <Select
               value={this.state.selectedOption}
-              onChange={this.handleChangeSelect}
+              onChange={(selectedOption) =>
+                this.handleChangeSelect(selectedOption)
+              }
               options={this.state.listDoctors}
               placeholder={
                 <FormattedMessage id="admin.manage-doctor.select-doctor" />
@@ -358,6 +362,7 @@ class ManageDoctor extends Component {
             <Select
               value={this.state.selectedPrice}
               options={this.state.listPrice}
+              onChange={this.handleOnChangeSelectDoctorInfor}
               placeholder={<FormattedMessage id="admin.manage-doctor.price" />}
               name="selectedPrice"
             />

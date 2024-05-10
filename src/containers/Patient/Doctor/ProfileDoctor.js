@@ -19,6 +19,7 @@ class ProfileDoctor extends Component {
 
   async componentDidMount() {
     let data = await this.getInforDoctor(this.props.doctorId);
+    console.log(`${data}`);
     this.setState({
       dataProfile: data,
     });
@@ -31,6 +32,7 @@ class ProfileDoctor extends Component {
       if (res && res.errCode === 0) {
         result = res.data;
       }
+      console.log(res);
     }
 
     return result;
@@ -124,13 +126,13 @@ class ProfileDoctor extends Component {
 
         {isShowPrice === true && (
           <div className="price">
-            <FormattedMessage id="patient.booking-modal.price" />
+            <FormattedMessage id="patient.booking-modal.price" />{" "}
             {dataProfile &&
               dataProfile.Doctor_Infor &&
               language === LANGUAGES.VI && (
                 <NumberFormat
                   className="currency"
-                  value={dataProfile.Doctor_Infor.valueVi}
+                  value={dataProfile.Doctor_Infor.priceTypeData.valueVi}
                   displayType={"text"}
                   thousandSeparator={true}
                   suffix={"VND"}
@@ -141,7 +143,7 @@ class ProfileDoctor extends Component {
               language === LANGUAGES.EN && (
                 <NumberFormat
                   className="currency"
-                  value={dataProfile.Doctor_Infor.valueEn}
+                  value={dataProfile.Doctor_Infor.priceTypeData.valueEn}
                   displayType={"text"}
                   thousandSeparator={true}
                   suffix={"$"}

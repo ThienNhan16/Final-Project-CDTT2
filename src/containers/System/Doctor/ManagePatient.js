@@ -39,6 +39,10 @@ class ManagePatient extends Component {
       date: formatDate,
     });
 
+    console.log(res);
+    console.log(user);
+    console.log(formatDate);
+
     if (res && res.errCode === 0) {
       this.setState({
         dataPatient: res.data,
@@ -63,6 +67,7 @@ class ManagePatient extends Component {
   };
 
   handleBtnConfirm = (item) => {
+    console.log(item);
     let data = {
       doctorId: item.doctorId,
       patientId: item.patientId,
@@ -116,10 +121,15 @@ class ManagePatient extends Component {
     }
   };
 
-  handleBtnRemedy = () => {};
+  // handleBtnRemedy = () => {
+  //   this.setState({
+  //     isOpenRemedyModal: true,
+  //   });
+  // };
 
   render() {
     let { dataPatient, isOpenRemedyModal, dataModal } = this.state;
+    console.log(isOpenRemedyModal);
     let { language } = this.props;
     return (
       <>
@@ -176,12 +186,12 @@ class ManagePatient extends Component {
                               >
                                 Xác nhận
                               </button>
-                              <button
+                              {/* <button
                                 className="mp-btn-remedy"
                                 onClick={() => this.handleBtnRemedy()}
                               >
                                 Gửi hoá đơn
-                              </button>
+                              </button> */}
                             </td>
                           </tr>
                         );

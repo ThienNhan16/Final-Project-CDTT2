@@ -31,7 +31,7 @@ class DetailDoctor extends Component {
       });
 
       let res = await getDetailInforDoctor(id);
-      console.log(res);
+
       if (res && res.errCode === 0) {
         this.setState({
           detailDoctor: res.data,
@@ -46,8 +46,7 @@ class DetailDoctor extends Component {
   render() {
     let { language } = this.props;
     let { detailDoctor } = this.state;
-    console.log(detailDoctor);
-    console.log(detailDoctor.image?.toString());
+
     let nameVi = "";
     let nameEn = "";
     if (detailDoctor && detailDoctor.positionData) {

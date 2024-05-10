@@ -1,10 +1,13 @@
+@import "../../styles/variables";
+
 .slick-prev {
   left: -10px !important;
   z-index: 1000 !important;
-  height: 48px !important;
-  width: 44px !important;
+  height: 50px !important;
+  width: 50px !important;
   background: #fff !important;
   border: 2px solid #d7d7d7 !important;
+  border-radius: 50% !important;
 
   &:hover {
     background: #eceaea !important;
@@ -14,16 +17,19 @@
 .slick-prev::before,
 .slick-next::before {
   font-family: FontAwesome !important;
-  color: red !important;
+  color: $blue-500 !important;
+  font-size: 24px !important;
+  font-weight: 600 !important;
 }
 
 .slick-next {
   right: -10px !important;
   z-index: 1000 !important;
-  height: 48px !important;
-  width: 44px !important;
+  height: 50px !important;
+  width: 50px !important;
   background: #fff !important;
   border: 2px solid #d7d7d7 !important;
+  border-radius: 50% !important;
 
   &:hover {
     background: #eceaea !important;
@@ -35,6 +41,7 @@
 }
 
 .section-share {
+  padding: 48px 0;
   &.section-specialty {
     background: #f5f5f5;
   }
@@ -51,6 +58,10 @@
 
   .section-body {
     .section-customize {
+      width: 300px;
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
       .bg-image {
         width: 278px;
         height: 150px;
@@ -84,8 +95,6 @@
 }
 
 .section-share {
-  height: 330px;
-
   .section-container {
     margin: 0 100px;
     display: flex;
@@ -97,24 +106,28 @@
       padding-top: 30px;
 
       .title-section {
+        text-transform: uppercase;
+        color: $blue-600;
         font-size: 22px;
         font-weight: 600;
       }
 
       .btn-section {
+        border-radius: $border-lg;
         float: right;
         padding: 10px 15px;
         border: none;
         outline: none;
         display: block;
-        background: #ebebeb;
-        color: black;
+        background: $blue-400;
+        color: $zinc-50;
         cursor: pointer;
         text-transform: uppercase;
 
         &:hover {
-          color: #fff;
-          background: #fed809;
+          color: $blue-50;
+          background: $blue-600;
+          transition: all 0.3s;
         }
       }
     }
@@ -133,7 +146,9 @@
     cursor: pointer;
 
     .customize-border {
-      border: 1px solid orange;
+      width: 100%;
+      border: 2px solid $blue-500;
+      border-radius: $border-lg;
       padding: 20px;
     }
   }
@@ -148,9 +163,11 @@
 }
 
 .section-about {
+  margin-top: 64px;
   padding: 0 100px;
   .section-about-header {
-    padding: 20px 10px;
+    color: $zinc-600;
+    padding: 0 0 24px 0;
     font-size: 22px;
     font-weight: 600;
   }

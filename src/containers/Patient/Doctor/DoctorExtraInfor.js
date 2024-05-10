@@ -21,6 +21,7 @@ class DoctorExtraInfor extends Component {
   async componentDidMount() {
     if (this.props.doctorIdFromParent) {
       let res = await getExtraInforDoctorById(this.props.doctorIdFromParent);
+
       if (res && res.errCode === 0) {
         this.setState({
           extraInfor: res.data,
@@ -35,11 +36,13 @@ class DoctorExtraInfor extends Component {
 
     if (this.props.doctorIdFromParent !== prevProps.doctorIdFromParent) {
       let res = await getExtraInforDoctorById(this.props.doctorIdFromParent);
+      console.log(res);
 
       if (res && res.errCode === 0) {
         this.setState({
           extraInfor: res.data,
         });
+        console.log(this.state.extraInfor);
       }
     }
   }
@@ -50,7 +53,8 @@ class DoctorExtraInfor extends Component {
     });
   };
   render() {
-    let { isShowDetailInfor, extraInfor } = this.props;
+    let { isShowDetailInfor, extraInfor } = this.state;
+    console.log(extraInfor);
     let { language } = this.props;
 
     return (
@@ -81,7 +85,7 @@ class DoctorExtraInfor extends Component {
                     value={extraInfor.priceTypeData.valueVi}
                     displayType={"text"}
                     thousandSeparator={true}
-                    suffix={"VND"}
+                    suffix={" VNĐ"}
                   />
                 )}
               {extraInfor &&
@@ -92,10 +96,9 @@ class DoctorExtraInfor extends Component {
                     value={extraInfor.priceTypeData.valueEn}
                     displayType={"text"}
                     thousandSeparator={true}
-                    suffix={"$"}
+                    suffix={" $"}
                   />
                 )}
-
               <span
                 className="detail"
                 onClick={() => this.showHideDetailInfor(true)}
@@ -124,7 +127,7 @@ class DoctorExtraInfor extends Component {
                           value={extraInfor.priceTypeData.valueVi}
                           displayType={"text"}
                           thousandSeparator={true}
-                          suffix={"VND"}
+                          suffix={" VNĐ"}
                         />
                       )}
                     {extraInfor &&
@@ -135,7 +138,7 @@ class DoctorExtraInfor extends Component {
                           value={extraInfor.priceTypeData.valueEn}
                           displayType={"text"}
                           thousandSeparator={true}
-                          suffix={"$"}
+                          suffix={" $"}
                         />
                       )}
                   </span>

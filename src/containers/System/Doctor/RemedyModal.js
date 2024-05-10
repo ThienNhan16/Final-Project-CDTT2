@@ -54,10 +54,11 @@ class RemedyModal extends Component {
   };
 
   render() {
-    let { isOpenModal, closeRemedyModal, dataModal, sendRemedy } = this.props;
+    let { isOpenRemedyModal, closeRemedyModal, dataModal, sendRemedy } =
+      this.props;
     return (
       <Modal
-        isOpen={isOpenModal}
+        isOpen={isOpenRemedyModal}
         className={`booking-modal-container`}
         size="md"
         centered
@@ -68,7 +69,7 @@ class RemedyModal extends Component {
             type="button"
             className="close"
             aria-label="close"
-            onClick={() => closeRemedyModal}
+            onClick={closeRemedyModal}
           >
             <span aria-hidden="true">x</span>
           </button>

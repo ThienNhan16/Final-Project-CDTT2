@@ -70,9 +70,10 @@ class DoctorSchedule extends Component {
         }
       }
       object.value = moment(new Date())
-        .add("i", "days")
-        .startOf("day")
+        .add(i, "days")
+        .startOf("days")
         .valueOf();
+
       allDays.push(object);
     }
 
@@ -95,6 +96,7 @@ class DoctorSchedule extends Component {
     if (this.props.doctorIdFromParent && this.props.doctorIdFromParent !== -1) {
       let doctorId = this.props.doctorIdFromParent;
       let date = event.target.value;
+
       let res = await getScheduleDoctorByDate(doctorId, date);
 
       if (res && res.errCode === 0) {
@@ -126,6 +128,7 @@ class DoctorSchedule extends Component {
       dataScheduleTimeModal,
     } = this.state;
     let { language } = this.props;
+
     return (
       <>
         <div className="doctor-schedule-container">
@@ -165,6 +168,7 @@ class DoctorSchedule extends Component {
                           className={
                             language === LANGUAGES.VI ? "btn-vie" : "btn-en"
                           }
+                          onClick={() => this.handleClickScheduleTime(item)}
                         >
                           {timeDisplay}
                         </button>

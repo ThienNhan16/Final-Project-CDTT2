@@ -83,6 +83,7 @@ class BookingModal extends Component {
   };
 
   handleOnchangeDatePicker = (date) => {
+    console.log(date);
     this.setState({
       birthday: date[0],
     });
@@ -199,7 +200,7 @@ class BookingModal extends Component {
                   isShowPrice={true}
                 />
               </div>
-              <div className="price">Giá khám 500</div>
+
               <div className="row">
                 <div className="col-6 form-group">
                   <label>

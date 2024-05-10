@@ -243,6 +243,7 @@ export const fetchAllDoctors = () => {
 };
 
 export const saveDetailDoctor = (data) => {
+  console.log(data);
   return async (dispatch, getState) => {
     try {
       let res = await saveDetailDoctorService(data);
@@ -252,13 +253,13 @@ export const saveDetailDoctor = (data) => {
           type: actionTypes.SAVE_DETAIL_DOCTOR_SUCCESS,
         });
       } else {
-        toast.error("Save detail doctor error!");
+        toast.error("Save detail doctor sderror!" + res.errMessage);
         dispatch({
           type: actionTypes.SAVE_DETAIL_DOCTOR_FAILED,
         });
       }
     } catch (e) {
-      toast.error("Save detail doctor error!");
+      toast.error("Save detail doctor error!" + e);
       dispatch({
         type: actionTypes.SAVE_DETAIL_DOCTOR_FAILED,
       });
@@ -309,7 +310,7 @@ export const getAllRequiredDoctorInfor = () => {
         resClinic.errCode === 0
       ) {
         let data = {
-          redPrice: resPrice.data,
+          resPrice: resPrice.data,
           resPayment: resPayment.data,
           resProvince: resProvince.data,
           resSpecialty: resSpecialty.data,
