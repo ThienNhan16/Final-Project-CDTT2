@@ -6,6 +6,7 @@ import { FormattedMessage } from "react-intl";
 import { LANGUAGES } from "../../utils";
 import { withRouter } from "react-router";
 import { changeLanguageApp } from "../../store/actions";
+import Sidebar from "./Sidebar";
 
 class HomeHeader extends Component {
   changeLanguage = (language) => {
@@ -25,7 +26,10 @@ class HomeHeader extends Component {
         <div className="home-header-container">
           <div className="home-header-content">
             <div className="left-content">
-              <i className="fas fa-bars"></i>
+              {/* <div className="pop-up">
+                <i className="fas fa-bars"></i>
+              </div> */}
+              <Sidebar />
               <img
                 alt="main-logo"
                 className="header-logo"

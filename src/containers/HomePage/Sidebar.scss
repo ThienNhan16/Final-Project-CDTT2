@@ -1,0 +1,40 @@
+@import "../../styles//variables";
+
+.sidebar-nav {
+  background: $blue-50;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  padding: 10px 15px;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  transition: 350ms;
+  z-index: 10;
+
+  .close i {
+    &:hover {
+      color: $blue-500;
+      transition: all 0.3s;
+    }
+  }
+}
+
+.side-bar-links {
+  padding-top: 25px;
+
+  font-size: 17px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  a {
+    color: $zinc-600;
+    &:hover {
+      text-decoration: none;
+      color: $blue-500;
+      transition: all 0.3s;
+    }
+  }
+}
