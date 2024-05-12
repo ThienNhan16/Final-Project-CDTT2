@@ -102,7 +102,7 @@
   },
   "admin": {
     "manage-doctor": {
-      "title": "Tạo thông tin doctor",
+      "title": "Tạo thông tin bác sĩ",
       "select-doctor": "Chọn bác sĩ",
       "intro": "Thông tin giới thiệu",
       "add": "Tạo thông tin",
