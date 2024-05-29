@@ -56,14 +56,6 @@ export const adminMenu = [
       { name: "menu.admin.manage-specialty", link: "/system/manage-specialty" },
     ],
   },
-
-  // Quản lý cẩm nang
-  {
-    name: "menu.admin.handbook",
-    menus: [
-      { name: "menu.admin.manage-handbook", link: "/system/manage-handbook" },
-    ],
-  },
 ];
 
 export const doctorMenu = [
