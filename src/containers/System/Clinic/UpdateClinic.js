@@ -223,6 +223,55 @@ class UpdateClinic extends Component {
     if (clinicInfo) {
       const { id, name, address, descriptionHTML, descriptionMarkdown, image } =
         clinicInfo;
+
+      let ownedDoctor = [];
+      let availableDoctor = [];
+      try {
+        const userArr = [];
+        await Promise.all(
+          this.props.listUsers.map(async (item) => {
+            const res = await getDetailInforDoctor(item.id);
+
+            const {
+              Markdown,
+              Doctor_Infor,
+              id,
+              roleId,
+              firstName,
+              lastName,
+              email,
+            } = res?.data;
+            userArr.push({
+              Markdown,
+              Doctor_Infor,
+              id,
+              roleId,
+              firstName,
+              lastName,
+              email,
+            });
+          })
+        );
+
+        console.log(userArr);
+
+        ownedDoctor = userArr.filter(
+          (item) =>
+            item.roleId === "R2" &&
+            item.Doctor_Infor !== null &&
+            item.Doctor_Infor.clinicId === id
+        );
+
+        availableDoctor = userArr.filter(
+          (item) =>
+            item.roleId === "R2" &&
+            (item.Doctor_Infor === null || item.Doctor_Infor.clinicId !== id)
+        );
+
+        console.log(ownedDoctor);
+      } catch (e) {
+        console.log(e);
+      }
       this.setState({
         id,
         name,
@@ -231,6 +280,8 @@ class UpdateClinic extends Component {
         descriptionMarkdown,
         imageBase64: image,
         previewImgURL: image,
+        ownedDoctorArr: ownedDoctor,
+        availableDoctorArr: availableDoctor,
       });
     }
   };
@@ -377,6 +428,7 @@ class UpdateClinic extends Component {
               type="text"
               value={this.state.name}
               onChange={(event) => this.handleOnChangeInput(event, "name")}
+              disabled={true}
             />
           </div>
 

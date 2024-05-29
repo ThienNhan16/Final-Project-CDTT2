@@ -24,7 +24,7 @@ class ManageInfo extends Component {
       lastName: "",
       phoneNumber: "",
       address: "",
-      gender: "",
+      gender: "M",
       position: "",
       role: "",
       avatar: "",
