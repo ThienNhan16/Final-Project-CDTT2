@@ -95,7 +95,7 @@ export const createNewUser = (data) => {
       let res = await createNewUserService(data);
 
       if (res && res.errCode === 0) {
-        toast.success("Create a new user succeed");
+        toast.success("Tạo người dùng thành công");
         dispatch(saveUserSuccess());
         dispatch(fetchAllUsersStart());
       } else {
@@ -104,7 +104,7 @@ export const createNewUser = (data) => {
       }
     } catch (e) {
       dispatch(saveUserFailed());
-      toast.error("Create a new user failed");
+      toast.error("Tạo người dùng thất bại");
     }
   };
 };
@@ -149,7 +149,7 @@ export const deleteAUser = (userId) => {
     try {
       let res = await deleteUserService(userId);
       if (res && res.errCode === 0) {
-        toast.success("Delete the user succeed !");
+        toast.success("Xoá người dùng thành công !");
         dispatch(deleteUserSuccess());
         dispatch(fetchAllUsersStart());
       } else {
@@ -176,7 +176,7 @@ export const editAUser = (data) => {
     try {
       let res = await editUserService(data);
       if (res && res.errCode === 0) {
-        toast.success("Update the user succeed!");
+        toast.success("Cập nhập người dùng thành công!");
         dispatch(editUserSuccess());
       } else {
         toast.error("Update the user error" + res.errMessage);
@@ -243,23 +243,22 @@ export const fetchAllDoctors = () => {
 };
 
 export const saveDetailDoctor = (data) => {
-  
   return async (dispatch, getState) => {
     try {
       let res = await saveDetailDoctorService(data);
       if (res && res.errCode === 0) {
-        toast.success("Save detail doctor succeed!");
+        toast.success("thành công!");
         dispatch({
           type: actionTypes.SAVE_DETAIL_DOCTOR_SUCCESS,
         });
       } else {
-        toast.error("Save detail doctor sderror!" + res.errMessage);
+        toast.error("thất bại !" + res.errMessage);
         dispatch({
           type: actionTypes.SAVE_DETAIL_DOCTOR_FAILED,
         });
       }
     } catch (e) {
-      toast.error("Save detail doctor error!" + e);
+      toast.error("thất bại !" + e);
       dispatch({
         type: actionTypes.SAVE_DETAIL_DOCTOR_FAILED,
       });
@@ -298,6 +297,7 @@ export const getAllRequiredDoctorInfor = () => {
       let resProvince = await getAllCodeService("PROVINCE");
       let resSpecialty = await getAllSpecialty();
       let resClinic = await getAllClinic();
+
       if (
         resPrice &&
         resPrice.errCode === 0 &&
@@ -316,6 +316,7 @@ export const getAllRequiredDoctorInfor = () => {
           resSpecialty: resSpecialty.data,
           resClinic: resClinic.data,
         };
+
         dispatch(fetRequiredDoctorInforSuccess(data));
       } else {
         dispatch(fetRequiredDoctorInforFailed());

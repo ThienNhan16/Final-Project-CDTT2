@@ -85,7 +85,7 @@ const getAllDetailSpecialtyById = (data) => {
 };
 
 const createNewClinic = (data) => {
-  return axios.post(`/api/create-new-clinic`, data);
+  return axios.post(`/api/update-clinic`, data);
 };
 
 const getAllClinic = () => {

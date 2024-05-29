@@ -118,11 +118,10 @@ class ManageSchedule extends Component {
       formatedDate: formatedDate,
     });
     if (res && res.errCode === 0) {
-      toast.success("save Infor succeed!");
+      toast.success("Lưu thông tin thành công!");
     } else {
       toast.error("error saveBulkScheduleDocotr");
     }
-  
   };
 
   render() {

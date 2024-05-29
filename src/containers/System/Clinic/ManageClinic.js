@@ -13,6 +13,7 @@ class ManageClinic extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      action: "CREATE",
       name: "",
       address: "",
       imageBase64: "",

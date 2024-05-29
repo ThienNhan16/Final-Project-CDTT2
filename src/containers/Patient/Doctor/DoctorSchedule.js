@@ -50,21 +50,52 @@ class DoctorSchedule extends Component {
           let today = `Hôm nay - ${ddMM}`;
           object.label = today;
         } else {
-          let labelVi = moment(new Date())
+          let dayName = moment(new Date())
             .add(i, "days")
-            .format("dddd - DD/MM");
-          object.label = this.capitalizeFirstLetter(labelVi);
+            .locale("vi")
+            .format("dddd");
+          let date = moment(new Date()).add(i, "days").format("DD/MM");
+
+          // Translate the day names to Vietnamese
+          switch (dayName) {
+            case "Monday":
+              dayName = "Thứ 2";
+              break;
+            case "Tuesday":
+              dayName = "Thứ 3";
+              break;
+            case "Wednesday":
+              dayName = "Thứ 4";
+              break;
+            case "Thursday":
+              dayName = "Thứ 5";
+              break;
+            case "Friday":
+              dayName = "Thứ 6";
+              break;
+            case "Saturday":
+              dayName = "Thứ 7";
+              break;
+            case "Sunday":
+              dayName = "Chủ nhật";
+              break;
+            default:
+              dayName = "";
+          }
+
+          object.label = `${this.capitalizeFirstLetter(dayName)} - ${date}`;
         }
       } else {
         if (i === 0) {
           let ddMM = moment(new Date()).format("DD/MM");
           let today = `Today - ${ddMM}`;
-          object.label = today;
+          object.label = this.capitalizeFirstLetter(today);
         } else {
-          object.label = moment(new Date())
+          let labelEn = moment(new Date())
             .add(i, "days")
             .locale("en")
             .format("ddd - DD/MM");
+          object.label = this.capitalizeFirstLetter(labelEn);
         }
       }
       object.value = moment(new Date())
@@ -80,6 +111,7 @@ class DoctorSchedule extends Component {
 
   async componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.language !== prevProps.language) {
+      console.log(this.props.language);
       let allDays = this.getArrDays(this.props.language);
       let res = await getScheduleDoctorByDate(
         this.props.doctorIdFromParent,
@@ -87,6 +119,7 @@ class DoctorSchedule extends Component {
       );
       this.setState({
         allAvailableTime: res.data ? res.data : [],
+        allDays: allDays,
       });
     }
   }

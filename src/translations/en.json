@@ -29,8 +29,9 @@
       "manage-doctor": "Manage doctors",
       "manage-admin": "Manage admins",
       "crud": "CRUD user",
-      "crud-redux": "CRUD Redux",
+      "crud-redux": "CRUD user",
       "clinic": "clinics",
+      "update-clinic": "Update clinic",
       "manage-clinic": "Manage clinics",
       "specialty": "specialties",
       "manage-specialty": "Manage specialties",
@@ -38,6 +39,8 @@
       "manage-handbook": "Manage handbook"
     },
     "doctor": {
+      "manage-info": "Manage Doctor information",
+      "manage-detail-info": "Manage Doctor detail information",
       "manage-schedule": "Manage Doctor's schedule",
       "manage-patient": "Manage Doctor's patient"
     }
@@ -94,7 +97,7 @@
       "reason": "Reasons for medical examination",
       "birthday": "Date of birth",
       "gender": "Genders",
-      "btnConFirm": "Confirm",
+      "btnConfirm": "Confirm",
       "btnCancel": "Cancel",
       "priceBooking": "Free booking",
       "price": "Price"

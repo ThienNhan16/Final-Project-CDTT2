@@ -34,11 +34,11 @@ class DefaultClass extends Component {
           style={{ left: this.state.isShowSidebar ? "0" : "-100%" }}
         >
           <div className="close" onClick={this.handleShowSidebar}>
-            <i class="fa fa-times"></i>
+            <i className="fa fa-times"></i>
           </div>
 
           <div className="side-bar-links">
-            <Link to={`/system/user-redux`}>Quản lý người dùng</Link>
+            <Link to={`/system/manage-user`}>Quản lý người dùng</Link>
             <Link to={`/doctor/manage-schedule`}>Quản lý lịch khám bệnh</Link>
             <Link to={`/doctor/manage-patient`}>Quản lý bệnh nhân</Link>
             <Link to={`/system/manage-doctor`}>Quản lý thông tin bác sĩ</Link>

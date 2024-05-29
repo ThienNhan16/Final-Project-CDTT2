@@ -57,7 +57,7 @@ class ManageSpecialty extends Component {
     let res = await createNewSpecialty(this.state);
 
     if (res && res.errCode === 0) {
-      toast.success("Add new specialty succeeds !");
+      toast.success("Thêm chuyên khoa thành công !");
       this.setState({
         name: "",
         imageBase64: "",

@@ -3,14 +3,14 @@ export const adminMenu = [
     //hệ thống
     name: "menu.admin.manage-user",
     menus: [
-      {
-        name: "menu.admin.crud",
-        link: "/system/user-manage",
-      },
+      // {
+      //   name: "menu.admin.crud",
+      //   link: "/system/user-manage",
+      // },
 
       {
         name: "menu.admin.crud-redux",
-        link: "/system/user-redux",
+        link: "/system/manage-user",
       },
 
       {
@@ -45,6 +45,7 @@ export const adminMenu = [
     name: "menu.admin.clinic",
     menus: [
       { name: "menu.admin.manage-clinic", link: "/system/manage-clinic" },
+      { name: "menu.admin.update-clinic", link: "/system/update-clinic" },
     ],
   },
 
@@ -77,6 +78,14 @@ export const doctorMenu = [
       {
         name: "menu.doctor.manage-patient",
         link: "/doctor/manage-patient",
+      },
+      {
+        name: "menu.doctor.manage-info",
+        link: "/doctor/manage-info",
+      },
+      {
+        name: "menu.doctor.manage-detail-info",
+        link: "/doctor/manage-detail-info",
       },
     ],
   },

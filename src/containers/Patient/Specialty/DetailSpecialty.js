@@ -112,6 +112,7 @@ class DetailSpecialty extends Component {
   render() {
     let { arrDoctorId, dataDetailSpecialty, listProvince } = this.state;
     let { language } = this.props;
+    console.log(arrDoctorId);
 
     return (
       <div className="detail-specialty-container">
@@ -142,6 +143,7 @@ class DetailSpecialty extends Component {
           {arrDoctorId &&
             arrDoctorId.length > 0 &&
             arrDoctorId.map((item, index) => {
+              console.log(item);
               return (
                 <div className="each-doctor" key={index}>
                   <div className="dt-content-left">

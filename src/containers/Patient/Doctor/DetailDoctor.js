@@ -43,7 +43,10 @@ class DetailDoctor extends Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {}
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.language !== this.props.language) {
+    }
+  }
   render() {
     let { language } = this.props;
     let { detailDoctor } = this.state;

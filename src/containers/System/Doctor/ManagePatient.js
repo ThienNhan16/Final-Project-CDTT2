@@ -103,7 +103,7 @@ class ManagePatient extends Component {
         isShowLoading: false,
       });
 
-      toast.success("send Remedy succeeds:");
+      toast.success("Gửi đơn thuốc thành công");
       this.closeRemedyModal();
       await this.getDataPatient();
     } else {

@@ -13,6 +13,7 @@ import { path } from "../utils";
 import Home from "../routes/Home";
 // import Login from '../routes/Login';
 import Login from "./Auth/Login";
+
 import System from "../routes/System";
 import HomePage from "./HomePage/HomePage";
 import CustomScrollbars from "../components/CustomScrollbars";
@@ -21,6 +22,9 @@ import Doctor from "../routes/Doctor";
 import VerifyEmail from "./Patient/VerifyEmail";
 import DetailSpecialty from "./Patient/Specialty/DetailSpecialty";
 import DetailClinic from "./Patient/Clinic/DetailClinic";
+import SignupSelection from "./Auth/SignupSelection";
+import SignupPatient from "./Auth/SignupPatient";
+import SignupDoctor from "./Auth/SignupDoctor";
 
 class App extends Component {
   handlePersistorState = () => {
@@ -57,6 +61,22 @@ class App extends Component {
                     path={path.LOGIN}
                     component={userIsNotAuthenticated(Login)}
                   />
+
+                  <Route
+                    path={path.SIGNUPSELECTION}
+                    component={userIsNotAuthenticated(SignupSelection)}
+                  />
+
+                  <Route
+                    path={path.SIGNUPPATIENT}
+                    component={userIsNotAuthenticated(SignupPatient)}
+                  />
+
+                  <Route
+                    path={path.SIGNUPDOCTOR}
+                    component={userIsNotAuthenticated(SignupDoctor)}
+                  />
+
                   <Route
                     path={path.SYSTEM}
                     component={userIsAuthenticated(System)}

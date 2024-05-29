@@ -5,7 +5,7 @@ import * as actions from "../../store/actions";
 import "./Login.scss";
 import { handleLoginApi } from "../../services/userService";
 
-class Login extends Component {
+class SignupSelection extends Component {
   constructor(props) {
     super(props);
     this.btnLogin = React.createRef();
@@ -29,9 +29,9 @@ class Login extends Component {
     });
   };
 
-  redirectToSystemPage = () => {
+  redirectToPage = (url) => {
     const { navigate } = this.props;
-    const redirectPath = "/signupselection";
+    const redirectPath = `/${url}`;
     navigate(`${redirectPath}`);
   };
 
@@ -70,82 +70,29 @@ class Login extends Component {
   render() {
     return (
       <div className="login-background">
-        <div className="login-container">
+        <div className="login-container" style={{ height: "200px" }}>
           <div className="login-content row">
-            <div className="col-12  text-login">Đăng nhập</div>
-
-            <div className="col-12 form-group login-input">
-              <label>Email:</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Nhập email"
-                value={this.state.username}
-                onChange={(event) => this.handleOnChangeUsername(event)}
-              />
-            </div>
-
-            <div className="col-12 form-group  login-input">
-              <label>Mật khẩu:</label>
-              <div className="custom-input-password">
-                <input
-                  className="form-control"
-                  type={this.state.isShowPassword ? "text" : "password"}
-                  placeholder="Nhập mật khẩu"
-                  onChange={(event) => {
-                    this.handleOnChangePassword(event);
-                  }}
-                  onKeyDown={(event) => this.handleKeyDown(event)}
-                />
-                <span
-                  onClick={() => {
-                    this.handleShowHidePassword();
-                  }}
-                >
-                  <i
-                    className={
-                      this.state.isShowPassword
-                        ? "far fa-eye"
-                        : "far fa-eye-slash"
-                    }
-                  ></i>
-                </span>
-              </div>
-            </div>
-
-            <div className="col-12" style={{ color: "red" }}>
-              {this.state.errMessage}
-            </div>
+            <div className="col-12  text-login">Đăng ký</div>
 
             <div className="col-12">
               <button
                 className="btn-login"
                 onClick={() => {
-                  this.handleLogin();
+                  this.redirectToPage("signupdoctor");
                 }}
               >
-                Đăng nhập
+                Đăng ký tài khoản bác sĩ
               </button>
             </div>
             <div className="col-12">
               <button
                 className="btn-login"
                 onClick={() => {
-                  this.redirectToSystemPage();
+                  this.redirectToPage("signuppatient");
                 }}
               >
-                Đăng ký
+                Đăng ký tài khoản bệnh nhân
               </button>
-            </div>
-            <div className="col-12">
-              <span className="forgot-password">Quên mật khẩu?</span>
-            </div>
-            <div className="col-12 text-center mt-3">
-              <span className="text-other-login">Đăng nhập bằng:</span>
-            </div>
-            <div className="col-12 social-login">
-              <i className="fab fa-google-plus-g google"></i>
-              <i className="fab fa-facebook-f facebook"></i>
             </div>
           </div>
         </div>
@@ -169,4 +116,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(SignupSelection);

@@ -37,13 +37,18 @@ class ProfileDoctor extends Component {
     return result;
   };
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
+  async componentDidUpdate(prevProps, prevState, snapshot) {
+    let data = await this.getInforDoctor(this.props.doctorId);
     if (this.props.doctorId !== prevProps.doctorId) {
+      this.setState({
+        dataProfile: data,
+      });
     }
   }
 
   renderTimeBooking = (dataTime) => {
     let { language } = this.props;
+    console.log(language);
     if (dataTime && !_.isEmpty(dataTime)) {
       let time =
         language === LANGUAGES.VI
